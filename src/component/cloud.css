@@ -1,0 +1,11 @@
+.cloud-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 60px;
+}
+.cloud {
+    font-size: 230px;
+    color: beige;
+    background-color: transparent;
+}
