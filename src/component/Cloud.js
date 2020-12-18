@@ -3,10 +3,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCloud } from "@fortawesome/free-solid-svg-icons";
 import './cloud.css';
 
-const Cloud = () => {
+const Cloud = ({cloudhex}) => {
     return (
         <div className="cloud-wrap">
-            <FontAwesomeIcon icon={faCloud} className="cloud" />
+            <FontAwesomeIcon icon={faCloud} className="cloud" style={{color:`${cloudhex}`}} />
         </div>
     );
 };
