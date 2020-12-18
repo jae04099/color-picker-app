@@ -23,13 +23,13 @@ const App = () => {
         const res = await fetch(`https://api.color.pizza/v1/`);
         const data = await res.json();
         await setColorNames(data);
-        console.log(data.colors[9].name)
         setIsLoading(true);
     };
 
     const isColor = () => {
+        let makeUpper = search.split(' ').map(i => i.charAt(0).toUpperCase() + i.slice(1)).join(' ')
         for (let i = 0; i < colorNames.colors.length; i++) {
-            if (colorNames.colors[i].name === search) {
+            if (colorNames.colors[i].name === makeUpper) {
                 setCloudHex(colorNames.colors[i].hex);
                 return alert("changed");
             }else if(i === colorNames.colors.length - 1){
