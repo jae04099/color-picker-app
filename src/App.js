@@ -31,7 +31,7 @@ const App = () => {
         for (let i = 0; i < colorNames.colors.length; i++) {
             if (colorNames.colors[i].name === makeUpper) {
                 setCloudHex(colorNames.colors[i].hex);
-                return alert("changed");
+                return;
             }else if(i === colorNames.colors.length - 1){
                 alert('search finished!')
             }

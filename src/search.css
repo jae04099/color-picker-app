@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap');
 
 .search-wrap {
     display: flex;
@@ -7,19 +7,20 @@
 }
 
 .search-form {
-    width: 600px;
+    width: 490px;
     height: 40px;
 }
 
 .search-form input {
-    width: 535px;
+    width: 400px;
     height: 40px;
     background-color: #fff;
     border: none;
-    padding-left: 15px;
+    padding: 5px 15px;
+    font-weight: 500;
     font-size: 24px;
-    font-family: 'Poppins', sans-serif;
-    color: rgba(0, 0, 0, 80);
+    font-family: 'Nunito', sans-serif;
+    color: rgba(0, 0, 0, 0.8);
 }
 .search-form input:focus {
     outline: none;
@@ -28,8 +29,9 @@
 }
 
 .search-button {
-    width: 42px;
-    height: 42px;
+    position: absolute;
+    width: 50px;
+    height: 50px;
     background: #F5A623;
     border: none;
     cursor: pointer;

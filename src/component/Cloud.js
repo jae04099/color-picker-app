@@ -6,6 +6,7 @@ import './cloud.css';
 const Cloud = ({cloudhex}) => {
     return (
         <div className="cloud-wrap">
+            <span className="cloudhexname">{cloudhex}</span>
             <FontAwesomeIcon icon={faCloud} className="cloud" style={{color:`${cloudhex}`}} />
         </div>
     );

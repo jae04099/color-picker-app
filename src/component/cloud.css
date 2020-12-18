@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap');
+
 .cloud-wrap {
     display: flex;
     align-items: center;
@@ -8,4 +10,38 @@
     font-size: 230px;
     color: beige;
     background-color: transparent;
+    position: relative;
+}
+
+.cloudhexname {
+    z-index: 1;
+    position: absolute;
+    top: 50;
+    left: 30;
+    font-size: 45px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.8);
+    background: rgba(255, 255, 255, 0.3);
+    font-family: 'Nunito', sans-serif;
+}
+
+.shake {
+    animation: shakeCart 0.1s ease-in-out forwards;
+}
+
+
+
+@keyframes shakeCart {
+    25% {
+        transform: translateX(6px);
+    }
+    50% {
+        transform: translateX(-4px);
+    }
+    75% {
+        transform: translateX(2px);
+    }
+    100% {
+        transform: translateX(0);
+    }
 }
