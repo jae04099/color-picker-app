@@ -3,6 +3,7 @@ import "./App.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import "./search.css";
+import PageTitle from "./component/PageTitle"
 import Cloud from "./component/Cloud";
 import Loading from "./component/Loading";
 
@@ -12,10 +13,11 @@ import Loading from "./component/Loading";
 const App = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [colorNames, setColorNames] = useState("");
-    const [query, setQuery] = useState('')
     const [search, setSearch] = useState("");
+    const [query, setQuery] = useState("");
     const [cloudHex, setCloudHex] = useState("ivory");
     const [shake, setShake] = useState(false);
+
 
     useEffect(() => {
         getColorLists();
@@ -30,20 +32,21 @@ const App = () => {
 
     const isColor = () => {
         let makeUpper =
-            (query.search(/\s/) == -1)
-                ? (query.charAt(0).toUpperCase() + query.slice(1))
-                : (query
-                    .split(" ")
-                    .map((i) => i.charAt(0).toUpperCase() + i.slice(1))
-                    .join(" "));
+            query.search(/\s/) == -1
+                ? query.charAt(0).toUpperCase() + query.slice(1)
+                : query
+                      .split(" ")
+                      .map((i) => i.charAt(0).toUpperCase() + i.slice(1))
+                      .join(" ");
+
         for (let i = 0; i < colorNames.colors.length; i++) {
-            if (colorNames.colors[i].name === makeUpper) {
+            if (colorNames.colors[i].name == makeUpper) {
                 setCloudHex(colorNames.colors[i].hex);
-                setShake(false);
                 return;
-            } else if (i === colorNames.colors.length - 1) {
-                setShake(true);
-                alert("search finished!");
+            } else if (i == colorNames.colors.length - 1) {
+                
+                
+                return alert("search finished!");
             }
         }
     };
@@ -51,9 +54,11 @@ const App = () => {
     const updateSearch = (e) => {
         setSearch(e.target.value);
     };
-    const getSearch = (e) => {
+    const getSearch = async (e) => {
         e.preventDefault();
         setQuery(search);
+        console.log("search:", search)
+        console.log("query:", query)
         isColor();
     };
 
@@ -64,15 +69,9 @@ const App = () => {
             ) : (
                 <div className="App">
                     <header className="App-header">
-                        <div className="main-title">
-                            <h1>Hey, Cloud!</h1>
-                            <h3>What's your favorite color?</h3>
-                        </div>
+                    <PageTitle />
                         <div className="search-wrap">
-                            <form
-                                onSubmit={getSearch}
-                                className="search-form"
-                            >
+                            <form onSubmit={getSearch} className="search-form">
                                 <input
                                     className="search-bar"
                                     type="text"
@@ -88,7 +87,7 @@ const App = () => {
                             </form>
                         </div>
                         <Cloud cloudhex={cloudHex} shake={shake} />
-                    </header>
+                        </header>
                 </div>
             )}
         </>
