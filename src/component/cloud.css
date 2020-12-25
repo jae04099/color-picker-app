@@ -25,7 +25,7 @@
     font-family: 'Nunito', sans-serif;
 }
 
-.shake {
+.shake-cloud {
     animation: shakeCart 0.2s ease-in-out forwards;
 }
 
