@@ -4,9 +4,6 @@ import { faCloud } from "@fortawesome/free-solid-svg-icons";
 import './cloud.css';
 
 const Cloud = ({cloudhex, shake}) => {
-
-
-    console.log(shake)
     return (
         <div className={`cloud-wrap ${ shake ? "shake-cloud":''}`}>
             <span className="cloudhexname">{cloudhex}</span>

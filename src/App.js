@@ -17,14 +17,20 @@ const App = () => {
     const [query, setQuery] = useState("");
     const [cloudHex, setCloudHex] = useState("ivory");
     const [shake, setShake] = useState(false);
-    const [clicked, setClicked] = useState(false);
+    // const [clicked, setClicked] = useState(false);
 
-    
-    const search = useRef('');
+    const search = useRef("");
 
     useEffect(() => {
         getColorLists();
     }, []);
+
+    useEffect(() => {
+        console.log("useEffect: ", query);
+        if(colorNames != ""){
+            isColor();
+        }
+    }, [query]);
 
     const getColorLists = async () => {
         const res = await fetch(`https://api.color.pizza/v1/`);
@@ -45,30 +51,23 @@ const App = () => {
         for (let i = 0; i < colorNames.colors.length; i++) {
             if (colorNames.colors[i].name == makeUpper) {
                 setCloudHex(colorNames.colors[i].hex);
-                setShake(false)
+                setShake(false);
                 return;
             } else if (i == colorNames.colors.length - 1) {
-                setShake(true)
-                setTimeout(() => {setShake(false)}, 200)
+                setShake(true);
+                setTimeout(() => {
+                    setShake(false);
+                }, 200);
                 return;
             }
         }
     };
 
-    // const updateSearch = (e) => {
-    //     setSearch(e.target.value);
-    // };
     const getSearch = (e) => {
         e.preventDefault();
-        setClicked(true);
         setQuery(search.current.value);
-        isColor();
+        console.log(query);
     };
-
-    // const makeShake = async () => {
-    //     await setShake(true)
-    //     await setShake(false)
-    // }
 
     return (
         <>
