@@ -6,6 +6,7 @@ import "./search.css";
 import PageTitle from "./component/PageTitle";
 import Cloud from "./component/Cloud";
 import Loading from "./component/Loading";
+import Cards from "./component/Cards";
 
 //https://api.color.pizza/v1/
 //data.colors[0].name
@@ -93,6 +94,7 @@ const App = () => {
                             </form>
                         </div>
                         <Cloud cloudhex={cloudHex} shake={shake} />
+                        <Cards />
                     </div>
                 </div>
             )}
