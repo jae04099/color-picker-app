@@ -7,8 +7,11 @@
 }
 
 .search-form {
-    width: 490px;
+    max-width: 490px;
     height: 40px;
+    display: flex;
+    flex-wrap: nowrap;
+    margin-bottom: 30px;
 }
 
 .search-form input {
@@ -29,7 +32,6 @@
 }
 
 .search-button {
-    position: absolute;
     width: 50px;
     height: 50px;
     background: #F5A623;

@@ -1,13 +1,23 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCloud } from "@fortawesome/free-solid-svg-icons";
-import './cloud.css';
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import "./cloud.css";
 
-const Cloud = ({cloudhex, shake}) => {
+const Cloud = ({ cloudhex, shake }) => {
     return (
-        <div className={`cloud-wrap ${ shake ? "shake-cloud":''}`}>
-            <span className="cloudhexname">{cloudhex}</span>
-            <FontAwesomeIcon icon={faCloud} className="cloud" style={{color:`${cloudhex}`}} />
+        <div className="heart-cloud-wrap">
+            <div className="heart-emo">
+                <FontAwesomeIcon icon={faHeart} className="heart" />
+            </div>
+            <div className={`cloud-wrap ${shake ? "shake-cloud" : ""}`}>
+                <span className="cloudhexname">{cloudhex}</span>
+                <FontAwesomeIcon
+                    icon={faCloud}
+                    className="cloud"
+                    style={{ color: `${cloudhex}` }}
+                />
+            </div>
         </div>
     );
 };
