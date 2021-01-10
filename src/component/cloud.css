@@ -21,6 +21,7 @@
     position: absolute;
     top: 30px;
     right: 5px;
+    z-index : 100;
 }
 
 .heart-emo .heart {
@@ -28,6 +29,11 @@
     color: #ffffff;
     width: 30px;
     height: 30px;
+    cursor: pointer;
+}
+
+.clicked-heart {
+    color:rgb(235, 64, 52);
 }
 
 

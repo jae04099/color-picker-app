@@ -29,7 +29,7 @@ const App = () => {
 
     useEffect(() => {
         console.log("useEffect: ", query);
-        if(colorNames != ""){
+        if (colorNames != "") {
             isColor();
         }
     }, [query]);
@@ -95,7 +95,14 @@ const App = () => {
                             </form>
                         </div>
                         <Cloud cloudhex={cloudHex} shake={shake} />
-                        <Cards />
+                        <h3 className="cards-wrap-title">
+                            {/* Cloud's Favorite Color Lists! */}
+                        </h3>
+                        <div className="cards-container">
+                            <ul>
+                                {/* <Cards /> */}
+                            </ul>
+                        </div>
                     </div>
                 </div>
             )}
