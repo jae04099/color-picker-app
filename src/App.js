@@ -2,12 +2,11 @@ import React, { useState, useEffect, useRef } from "react";
 import "./App.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import "./search.css";
 import PageTitle from "./component/PageTitle";
 import Cloud from "./component/Cloud";
 import Loading from "./component/Loading";
-import Cards from "./component/Cards";
+import Cards from "./component/CardList";
 
 //https://api.color.pizza/v1/
 //data.colors[0].name
@@ -15,11 +14,20 @@ import Cards from "./component/Cards";
 const App = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [colorNames, setColorNames] = useState("");
-    // const [search, setSearch] = useState("");
     const [query, setQuery] = useState("");
     const [cloudHex, setCloudHex] = useState("ivory");
     const [shake, setShake] = useState(false);
-    // const [clicked, setClicked] = useState(false);
+    const [colors, setColors] = useState([
+        {
+            id: 1,
+            title: 'Midnightblue',
+            hex: '#545d7a',
+            r: 255,
+            g: 255,
+            b: 255
+        }
+    ])
+
 
     const search = useRef("");
 
@@ -28,7 +36,6 @@ const App = () => {
     }, []);
 
     useEffect(() => {
-        console.log("useEffect: ", query);
         if (colorNames != "") {
             isColor();
         }
@@ -68,8 +75,21 @@ const App = () => {
     const getSearch = (e) => {
         e.preventDefault();
         setQuery(search.current.value);
-        console.log(query);
     };
+
+    console.log(colorNames)
+
+    // setColors([
+    //     {
+    //         id: ,
+    //         title: 'Midnightblue',
+    //         hex: '#545d7a',
+    //         r: 255,
+    //         g: 255,
+    //         b: 255
+    //     }
+    // ])
+
 
     return (
         <>
@@ -94,14 +114,12 @@ const App = () => {
                                 </button>
                             </form>
                         </div>
-                        <Cloud cloudhex={cloudHex} shake={shake} />
+                        <Cloud cloudhex={cloudHex} shake={shake}/>
                         <h3 className="cards-wrap-title">
-                            {/* Cloud's Favorite Color Lists! */}
+                            Cloud's Favorite Color Lists!
                         </h3>
                         <div className="cards-container">
-                            <ul>
-                                {/* <Cards /> */}
-                            </ul>
+                            <ul><Cards /></ul>
                         </div>
                     </div>
                 </div>
