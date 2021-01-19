@@ -1,4 +1,4 @@
-## Color Picker
+# Color Picker
 ![](colorpicker.jpg)
 
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
