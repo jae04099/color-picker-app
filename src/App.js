@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./App.css";
+import "./search.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import "./search.css";
 import PageTitle from "./component/PageTitle";
 import Cloud from "./component/Cloud";
 import Loading from "./component/Loading";
@@ -77,28 +77,17 @@ const App = () => {
         setQuery(search.current.value);
     };
 
-    console.log(colorNames)
-
-    // setColors([
-    //     {
-    //         id: ,
-    //         title: 'Midnightblue',
-    //         hex: '#545d7a',
-    //         r: 255,
-    //         g: 255,
-    //         b: 255
-    //     }
-    // ])
-
 
     return (
         <>
             {!isLoading ? (
                 <Loading />
             ) : (
-                <div className="App">
-                    <div className="app-wrap">
-                        <PageTitle />
+                <section className="App">
+                    <header className="main-title">
+                    <h1>Hey, Cloud!</h1>
+                    <h3>What's your favorite color?</h3>
+                    </header>
                         <div className="search-wrap">
                             <form onSubmit={getSearch} className="search-form">
                                 <input
@@ -118,11 +107,19 @@ const App = () => {
                         <h3 className="cards-wrap-title">
                             Cloud's Favorite Color Lists!
                         </h3>
-                        <div className="cards-container">
-                            <ul><Cards /></ul>
+                        <div className="cards-wrap">
+                            <div className="cards-container">
+                            <Cards />
+                            <Cards />
+                            <Cards />
+                            <Cards />
+                            <Cards />
+                            <Cards />
+                            <Cards />
+                            <Cards />
                         </div>
-                    </div>
-                </div>
+                        </div>
+                </section>
             )}
         </>
     );

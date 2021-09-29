@@ -4,7 +4,7 @@ import "./cards.css";
 const Cards = ({ cardTitle, cardHex, cardR, cardG, cardB }) => {
     return (
         <>
-            <li className="card">
+            <div className="card">
                 <div className="main-card-color"></div>
                 <div className="card-desc">
                     <ul>
@@ -15,7 +15,7 @@ const Cards = ({ cardTitle, cardHex, cardR, cardG, cardB }) => {
                         </li>
                     </ul>
                 </div>
-            </li>
+            </div>
         </>
     );
 };

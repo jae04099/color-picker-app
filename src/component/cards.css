@@ -1,8 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap');
 
-* {
-    list-style: none;
-}
 .cards-wrap-title {
     font-family: 'Nunito', sans-serif; 
     color: #ffffff;
@@ -11,22 +8,9 @@
     text-align: center;
 }
 
-/* cards-container */
-.cards-container{
-    display: flex;
-    flex-direction: row;
-}
-
-.cards-container ul {
-    display: flex;
-    -webkit-flex-wrap: wrap;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    padding: 0;
-}
 
 /* card */
- li.card {
+ .card {
     background-color: #fff;
     overflow: hidden;
     border-radius: 7px;
@@ -40,8 +24,7 @@
     height: 40%;
     background-color: #000;
 }
-.card .card-desc {
-}
+
 .card .card-desc ul {
     background-color: #fff;
     display: flex;
@@ -54,21 +37,21 @@
     font-weight: 700;
     font-size: 24px;
 }
-.cards-container ul li .card-desc ul .card-code {
+.card-desc ul .card-code {
     background-color: #fff;
     margin: 15px 0;
 }
 
-.cards-container ul li .card-desc ul .card-code p  {
+.card-desc ul .card-code p  {
     background-color: #fff;
     color: #545D7A;
     font-size: 16px;
     margin: 0;
 }
-.cards-container ul li .card-desc ul .card-code p.card-hex {
+.card-desc ul .card-code p.card-hex {
     background-color: #fff;
 }
-.cards-container ul li .card-desc ul .card-code p.card-rgb {
+.card-desc ul .card-code p.card-rgb {
     background-color: #fff;
     padding-top: 5px;
 }
