@@ -1,18 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCloud } from "@fortawesome/free-solid-svg-icons";
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faCloud, faHeart } from "@fortawesome/free-solid-svg-icons";
 import "./cloud.css";
+import { ColorContext } from "../context/Colors";
 
-const Cloud = ({ cloudhex, shake, heartodefault }) => {
-    const [isLiked, setIsLiked] = useState("heart");
-    let likeColor = () => {
-        if (isLiked == "heart") {
-            setIsLiked("clicked-heart");
-        } else {
-            setIsLiked("heart");
-        }
-    };
+const Cloud = () => {
+    const {isLoading, setIsLoading, getSearch, search, cloudHex, shake, likeColor, isLiked} = useContext(ColorContext);
     return (
         <div className="heart-cloud-wrap">
             <div className="heart-emo">
@@ -23,11 +16,11 @@ const Cloud = ({ cloudhex, shake, heartodefault }) => {
                 />
             </div>
             <div className={`cloud-wrap ${shake ? "shake-cloud" : ""}`}>
-                <span className="cloudhexname">{cloudhex}</span>
+                <span className="cloudhexname">{cloudHex}</span>
                 <FontAwesomeIcon
                     icon={faCloud}
                     className="cloud"
-                    style={{ color: `${cloudhex}` }}
+                    style={{ color: `${cloudHex}` }}
                 />
             </div>
         </div>
