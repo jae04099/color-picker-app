@@ -1,23 +1,28 @@
-import React from "react";
+import React, {useContext} from "react";
+import { ColorContext } from "../context/Colors";
 import "./cards.css";
 
-const Cards = ({ cardTitle, cardHex, cardR, cardG, cardB }) => {
+const Cards = () => {
+    const {isLoading, setIsLoading, getSearch, search, cloudHex, shake, likeColor, isLiked, setColorInfo, colors} = useContext(ColorContext);
     return (
         <>
-            <div className="card">
-                <div className="main-card-color"></div>
+        {colors && colors.map((color, index) => {
+             return <div key="index" className="card">
+                <div className="main-card-color" style={{backgroundColor: color.hex}}></div>
                 <div className="card-desc">
                     <ul>
-                        <li className="card-title">Midnightblue</li>
+                        <li className="card-title">{color.title}</li>
                         <li className="card-code">
-                            <p className="card-hex">HEX : #545d7a</p>
-                            <p className="card-rgb">RGB : 255, 255, 255</p>
+                            <p className="card-hex">HEX : {color.hex}</p>
+                            <p className="card-rgb">RGB : {color.r}, {color.g}, {color.b}</p>
                         </li>
                     </ul>
                 </div>
             </div>
+        })}
         </>
-    );
+    )
+    
 };
 
 export default Cards;

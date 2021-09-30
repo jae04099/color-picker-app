@@ -12,7 +12,7 @@ import Cards from "./component/CardList";
 //data.colors[0].name
 
 const App = () => {
-    const {isLoading, setIsLoading, getSearch, search, cloudHex, shake, likeColor, isLiked} = useContext(ColorContext);
+    const {isLoading, setIsLoading, getSearch, search, cloudHex, shake, likeColor, isLiked, setColorInfo, colors} = useContext(ColorContext);
         return (
         <>
             {!isLoading ? (
@@ -44,13 +44,6 @@ const App = () => {
                         </h3>
                         <div className="cards-wrap">
                             <div className="cards-container">
-                            <Cards />
-                            <Cards />
-                            <Cards />
-                            <Cards />
-                            <Cards />
-                            <Cards />
-                            <Cards />
                             <Cards />
                         </div>
                         </div>

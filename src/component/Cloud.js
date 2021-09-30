@@ -5,13 +5,13 @@ import "./cloud.css";
 import { ColorContext } from "../context/Colors";
 
 const Cloud = () => {
-    const {isLoading, setIsLoading, getSearch, search, cloudHex, shake, likeColor, isLiked} = useContext(ColorContext);
+    const {isLoading, setIsLoading, getSearch, search, cloudHex, shake, likeColor, isLiked, setColorInfo, colors} = useContext(ColorContext);
     return (
         <div className="heart-cloud-wrap">
             <div className="heart-emo">
                 <FontAwesomeIcon
                     icon={faHeart}
-                    onClick={likeColor}
+                    onClick={likeColor, setColorInfo}
                     className={isLiked}
                 />
             </div>
