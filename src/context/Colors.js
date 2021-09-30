@@ -49,6 +49,10 @@ export const ColorProvider = props => {
         )
     }
 
+    const removeCard = (e) => {
+        e.target.parentNode.parentNode.parentNode.remove()
+    }
+
     const isColor = () => {
         let makeUpper =
             query.search(/\s/) == -1
@@ -79,6 +83,6 @@ export const ColorProvider = props => {
         setQuery(search.current.value);
     };
     return (
-        <ColorContext.Provider value={{ isLoading, setIsLoading, getSearch, search, cloudHex, shake, likeColor, isLiked, setColorInfo, colors }} >{props.children}</ColorContext.Provider>
+        <ColorContext.Provider value={{ isLoading, setIsLoading, getSearch, search, cloudHex, shake, likeColor, isLiked, setColorInfo, colors, removeCard }} >{props.children}</ColorContext.Provider>
     )
 }
