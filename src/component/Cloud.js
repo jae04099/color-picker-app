@@ -5,17 +5,16 @@ import "./cloud.css";
 import { ColorContext } from "../context/Colors";
 
 const Cloud = () => {
-    const {isLoading, setIsLoading, getSearch, search, cloudHex, shake, likeColor, isLiked, setColorInfo, colors} = useContext(ColorContext);
+    const {isLoading, setIsLoading, getSearch, search, cloudHex, shake, likeColor, isLiked, setColorInfo, colors, heartColor} = useContext(ColorContext);
     return (
         <div className="heart-cloud-wrap">
-            <div className="heart-emo">
+            <div className={`cloud-wrap ${shake ? "shake-cloud" : ""}`}>
+            <div className="heart-emo" onClick={likeColor}>
                 <FontAwesomeIcon
                     icon={faHeart}
-                    onClick={likeColor, setColorInfo}
-                    className={isLiked}
+                    className={heartColor}
                 />
             </div>
-            <div className={`cloud-wrap ${shake ? "shake-cloud" : ""}`}>
                 <span className="cloudhexname">{cloudHex}</span>
                 <FontAwesomeIcon
                     icon={faCloud}

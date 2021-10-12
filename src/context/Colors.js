@@ -8,16 +8,11 @@ export const ColorProvider = props => {
     const [query, setQuery] = useState("");
     const [cloudHex, setCloudHex] = useState("ivory");
     const [shake, setShake] = useState(false);
-    const [isLiked, setIsLiked] = useState("heart");
+    const [isLiked, setIsLiked] = useState(false);
+    const [isRealColor, setIsRealColor] = useState('');
+    const [heartColor, setHeartColor] = useState('heart');
     const [colors, setColors] = useState([
     ]);
-    let likeColor = () => {
-        if (isLiked == "heart") {
-            setIsLiked("clicked-heart");
-        } else {
-            setIsLiked("heart");
-        }
-    };
     const search = useRef("");
 
     useEffect(() => {
@@ -31,7 +26,7 @@ export const ColorProvider = props => {
     }, [query]);
 
     useEffect(() => {
-    }, [colors])
+    }, [colors, isLiked, isRealColor])
     const getColorLists = async () => {
         const res = await fetch(`https://api.color.pizza/v1/`);
         const data = await res.json();
@@ -44,8 +39,8 @@ export const ColorProvider = props => {
                 hex: likedColor.hex,
                 r: likedColor.rgb.r,
                 g: likedColor.rgb.g,
-                b: likedColor.rgb.b
-            }]
+                b: likedColor.rgb.b,
+                isLiked: true            }]
         )
     }
 
@@ -67,9 +62,11 @@ export const ColorProvider = props => {
                 setCloudHex(colorNames.colors[i].hex);
                 setLikedColor(colorNames.colors[i]);
                 setShake(false);
+                setIsRealColor(true);
                 return;
             } else if (i == colorNames.colors.length - 1) {
                 setShake(true);
+                setIsRealColor(false);
                 setTimeout(() => {
                     setShake(false);
                 }, 200);
@@ -80,9 +77,26 @@ export const ColorProvider = props => {
 
     const getSearch = (e) => {
         e.preventDefault();
+        console.log(isRealColor)
         setQuery(search.current.value);
+        if(query !== search.current.value){
+            setIsLiked(false)
+            setHeartColor('heart');
+        }
     };
+
+    let likeColor = (e) => {
+        if (!isLiked) {
+            setIsLiked(true)
+            setHeartColor("fill");
+            setColorInfo();
+        } else {
+            setIsLiked(false)
+            setHeartColor('heart');
+        }
+    };
+    
     return (
-        <ColorContext.Provider value={{ isLoading, setIsLoading, getSearch, search, cloudHex, shake, likeColor, isLiked, setColorInfo, colors, removeCard }} >{props.children}</ColorContext.Provider>
+        <ColorContext.Provider value={{ isLoading, setIsLoading, getSearch, search, cloudHex, shake, likeColor, isLiked, setColorInfo, colors, removeCard, heartColor }} >{props.children}</ColorContext.Provider>
     )
 }
